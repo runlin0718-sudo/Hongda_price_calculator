@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <title>报价计算器</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <!-- PWA 必需 -->
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#1976d2">
+  <style>
+    body{font-family:Arial,Helvetica,sans-serif;padding:20px;background:#f5f5f5}
+    .card{max-width:360px;margin:auto;padding:20px;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,.15)}
+    .btn{width:100%}
+    #result{font-size:1.5em;text-align:center;margin-top:15px}
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h5 class="mb-3">选择需求</h5>
+    <select id="mat" class="form-select mb-2">
+      <option value="0">塑料</option>
+      <option value="50">金属</option>
+    </select>
+    <select id="size" class="form-select mb-2">
+      <option value="0">小号</option>
+      <option value="10">中号</option>
+      <option value="30">大号</option>
+    </select>
+    <button class="btn btn-primary" onclick="calc()">立即计算</button>
+    <div id="result" class="text-success"></div>
+  </div>
+  <script>
+    function calc(){
+      const m= +document.getElementById('mat').value;
+      const s= +document.getElementById('size').value;
+      document.getElementById('result').textContent= '总价：¥'+(100+m+s);
+    }
+  </script>
+</body>
+</html>
